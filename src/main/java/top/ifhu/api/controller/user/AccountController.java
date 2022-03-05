@@ -18,11 +18,16 @@ public class AccountController {
 
     @Autowired
     private UserAccountRepository userAccountRepository;
+
+
+
     @ApiOperation("添加账户")
     @PostMapping("/register")
-    public UserAccount addAccount(@RequestBody UserAccount account){
+    public UserAccount registerUserAccount(@RequestBody UserAccount account){
+
             return userAccountRepository.save(account);
     }
+
 
     @GetMapping("/all")
     public List<UserAccount> queryAll(){

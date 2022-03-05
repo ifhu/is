@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 public class GatewayIntercetor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        log.info( "网关处理器"+ request.getRequestURI());
+        log.info( "网关处理器"+ request.getRequestURI() + System.currentTimeMillis() );
 //        return true;
         return HandlerInterceptor.super.preHandle(request, response, handler);
     }
