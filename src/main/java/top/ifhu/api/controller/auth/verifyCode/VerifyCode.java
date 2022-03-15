@@ -1,4 +1,4 @@
-package top.ifhu.base.system.authorize.verifyCode;
+package top.ifhu.api.controller.auth.verifyCode;
 
 import lombok.Data;
 @Data

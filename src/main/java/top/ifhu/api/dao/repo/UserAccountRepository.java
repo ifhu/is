@@ -2,8 +2,8 @@ package top.ifhu.api.dao.repo;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import top.ifhu.api.dao.entity.UserAccount;
+import top.ifhu.api.dao.entity.UserAccountModel;
 
 
-public interface UserAccountRepository extends JpaRepository<UserAccount,String> {
+public interface UserAccountRepository extends JpaRepository<UserAccountModel,String> {
 }

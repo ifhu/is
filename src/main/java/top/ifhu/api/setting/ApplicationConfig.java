@@ -17,14 +17,22 @@ public class ApplicationConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        WebMvcConfigurer.super.addInterceptors(registry);
         registry
                 .addInterceptor(gatewayIntercetor)
                 .addPathPatterns("/**");
-        WebMvcConfigurer.super.addInterceptors(registry);
+
     }
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         WebMvcConfigurer.super.addCorsMappings(registry);
+        registry.addMapping("/**")
+                .allowCredentials(true)
+                .allowedMethods("GET","POST","OPTIONS","HEAD")
+                .allowedOrigins(".fuhao.pub")
+                .allowedHeaders("*");
+
     }
+
 }

@@ -1,32 +1,33 @@
 package top.ifhu.api.dao.entity;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.validation.annotation.Validated;
 
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import java.util.UUID;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Validated
 @Table(name = "user_account")
-public class UserAccount{
+@GenericGenerator(name = "auto-uuid", strategy = "uuid")
+public class UserAccountModel {
     @Id
-    @GenericGenerator(name = "idGenerator", strategy = "uuid")
-    @GeneratedValue(generator = "idGenerator")
+    @GeneratedValue(generator = "auto-uuid")
     @Column(name = "id", unique = true, nullable = false, length = 32)
     private String Id;
 
-    @GenericGenerator(name = "idGenerator", strategy = "uuid")
-    @GeneratedValue(generator = "idGenerator")
-    @Column(name = "user_id", unique = true, nullable = false, length = 32)
+    @Column(name = "user_id", unique = true, nullable = false, length = 50)
     private String userId;
 
     @NotBlank(message = "邮箱不能为空")
@@ -44,4 +45,11 @@ public class UserAccount{
 
     @Column(name="freezed" ,nullable = false)
     private boolean isFreezed = false;
+
+    public UserAccountModel(String account,String password,String username){
+        this.userId = UUID.randomUUID().toString().replaceAll("-","");
+        this.userAccount = account;
+        this.userPassword = password;
+        this.username = username;
+    }
 }

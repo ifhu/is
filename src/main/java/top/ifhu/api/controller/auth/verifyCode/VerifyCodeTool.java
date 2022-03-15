@@ -1,4 +1,4 @@
-package top.ifhu.base.system.authorize.verifyCode;
+package top.ifhu.api.controller.auth.verifyCode;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

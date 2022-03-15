@@ -11,10 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class NotFoundErrorController implements ErrorController {
-
     @RequestMapping("/error")
     public ResponseTemplate undefinedApi(HttpServletRequest request) {
-        return ResponseTemplate.fail(
-                ReturnCode.UNDEINED_INTERFACE);
+        return ResponseTemplate.fail(ReturnCode.UNDEINED_INTERFACE);
     }
 }
